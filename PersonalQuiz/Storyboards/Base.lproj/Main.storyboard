@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Introduction View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroductionViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
         <!--Вопрос №-->
         <scene sceneID="1yW-BO-iOg">
             <objects>
-                <viewController id="Fi4-Sr-yWo" sceneMemberID="viewController">
+                <viewController id="Fi4-Sr-yWo" customClass="QuestionsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8dG-ue-etP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,6 +252,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="questionLabel" destination="bFU-Om-8ER" id="w8U-He-Ctf"/>
+                        <outlet property="singleStackView" destination="z4A-sn-lj4" id="jWy-fA-mWC"/>
+                        <outletCollection property="singleButtons" destination="axq-ES-UCF" collectionClass="NSMutableArray" id="JIE-dD-B2x"/>
+                        <outletCollection property="singleButtons" destination="Ez5-kd-vPg" collectionClass="NSMutableArray" id="xOJ-o6-xup"/>
+                        <outletCollection property="singleButtons" destination="0vz-Oc-39J" collectionClass="NSMutableArray" id="5if-0y-NS7"/>
+                        <outletCollection property="singleButtons" destination="OA0-iT-ts0" collectionClass="NSMutableArray" id="Q7M-Ki-qZt"/>
                         <segue destination="UQK-uq-OdP" kind="show" identifier="showResult" id="QsI-77-kVb"/>
                     </connections>
                 </viewController>
@@ -262,7 +268,7 @@
         <!--Результаты-->
         <scene sceneID="dTf-E4-xZo">
             <objects>
-                <viewController id="UQK-uq-OdP" sceneMemberID="viewController">
+                <viewController id="UQK-uq-OdP" customClass="ResultsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VFI-fO-HW6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,10 +300,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результаты" id="D3f-iY-HN2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="LNW-6o-gRJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="LNW-6o-gRJ">
+                            <connections>
+                                <segue destination="D3E-IP-Ela" kind="unwind" unwindAction="unwindWithSigue:" id="jf3-sQ-EeX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgC-6h-lBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="D3E-IP-Ela" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2205" y="88"/>
         </scene>
