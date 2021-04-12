@@ -43,6 +43,11 @@ class QuestionsViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultsVC = segue.destination as? ResultsViewController else {return}
+        resultsVC.answerChoosen = answerChoosen
+    }
+    
     @IBAction func singleButtonAnswerPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else {return}
         let currentAnswer = currentAnswers[buttonIndex]
@@ -112,6 +117,7 @@ extension QuestionsViewController{
     func showRangedStackView(with answers:[Answer]) {
         rangedStackView.isHidden = false
         rangedLabels.first?.text = answers.first?.title
+        rangedLabels.last?.text = answers.last?.title
         
         
     }

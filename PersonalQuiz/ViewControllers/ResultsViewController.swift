@@ -8,22 +8,50 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+    
+    @IBOutlet var labelResultAnimal: UILabel!
+    @IBOutlet var labelDescriptionResult: UILabel!
+    
+    var answerChoosen: [Answer]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getResult()
+        
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension ResultsViewController{
+    private func getResult(){
+        
+        var res = answerChoosen.sorted(by: {(first: Answer, second: Answer ) -> Bool in
+            first.type == second.type})
+        
+        let a = "\(res.last?.type.rawValue)"
+        
+        labelResultAnimal.text = "\(res.last!.type.rawValue)"
+       
+        
+        var cat = 0
+        var dog = 0
+        var rabbite = 0
+        var tyrtle = 0
+        
+        for type in answerChoosen {
+        switch type.type {
+            case .dog: dog += 1
+            case .cat: cat += 1
+            case .rabbite: rabbite += 1
+            case .turtle: tyrtle += 1
+            }
+        }
+        print(dog, cat, rabbite, tyrtle)
+        }
+        }
+            
+            
+        
+    
+
