@@ -103,14 +103,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-kd-vPg">
                                         <rect key="frame" x="121" y="46" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="Fi4-Sr-yWo" eventType="touchUpInside" id="LUn-V9-S69"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vz-Oc-39J">
                                         <rect key="frame" x="121" y="92" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="Fi4-Sr-yWo" eventType="touchUpInside" id="CDE-Qr-Aem"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OA0-iT-ts0">
                                         <rect key="frame" x="121" y="138" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="Fi4-Sr-yWo" eventType="touchUpInside" id="3FM-vS-keG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -253,13 +262,7 @@
                             </constraint>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="Hh4-KV-BAr">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="6yf-4P-rDg">
-                            <connections>
-                                <segue destination="UQK-uq-OdP" kind="show" id="Aho-pE-9FR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="Hh4-KV-BAr"/>
                     <connections>
                         <outlet property="multipleStackView" destination="Jdg-EN-8sd" id="0Vv-Ss-uVx"/>
                         <outlet property="questionLabel" destination="bFU-Om-8ER" id="w8U-He-Ctf"/>
@@ -271,24 +274,16 @@
                         <outletCollection property="singleButtons" destination="Ez5-kd-vPg" collectionClass="NSMutableArray" id="xOJ-o6-xup"/>
                         <outletCollection property="singleButtons" destination="0vz-Oc-39J" collectionClass="NSMutableArray" id="5if-0y-NS7"/>
                         <outletCollection property="singleButtons" destination="OA0-iT-ts0" collectionClass="NSMutableArray" id="Q7M-Ki-qZt"/>
-                        <outletCollection property="multipleLabels" destination="ylW-nu-Sme" collectionClass="NSMutableArray" id="AYf-oV-5Wb"/>
-                        <outletCollection property="multipleLabels" destination="cSh-Ys-8oJ" collectionClass="NSMutableArray" id="cMf-MS-9G7"/>
-                        <outletCollection property="multipleLabels" destination="KYd-pG-eub" collectionClass="NSMutableArray" id="WkV-qz-Btp"/>
-                        <outletCollection property="multipleLabels" destination="aYu-JT-eYQ" collectionClass="NSMutableArray" id="Y8u-eJ-xKa"/>
-                        <outletCollection property="multipleLabels" destination="fc1-XG-4Oz" collectionClass="NSMutableArray" id="ers-tb-PCZ"/>
-                        <outletCollection property="multipleLabels" destination="4fE-aK-Pu2" collectionClass="NSMutableArray" id="330-Xr-7XW"/>
-                        <outletCollection property="multipleLabels" destination="w6G-cO-Ne4" collectionClass="NSMutableArray" id="VnU-WH-TJg"/>
-                        <outletCollection property="multipleLabels" destination="WGw-sR-Z2x" collectionClass="NSMutableArray" id="HQW-in-isx"/>
                         <outletCollection property="multipleSwitches" destination="sli-dX-xS4" collectionClass="NSMutableArray" id="MOc-JL-xfc"/>
                         <outletCollection property="multipleSwitches" destination="gHU-gk-CZG" collectionClass="NSMutableArray" id="I12-WP-Oyw"/>
                         <outletCollection property="multipleSwitches" destination="lNg-4m-1CA" collectionClass="NSMutableArray" id="bJD-Yz-bho"/>
                         <outletCollection property="multipleSwitches" destination="pSQ-1y-okO" collectionClass="NSMutableArray" id="xxe-0v-Sz9"/>
-                        <outletCollection property="multipleLabels" destination="fc1-XG-4Oz" collectionClass="NSMutableArray" id="GRD-Ce-4mX"/>
-                        <outletCollection property="multipleLabels" destination="4fE-aK-Pu2" collectionClass="NSMutableArray" id="45P-HF-ukN"/>
-                        <outletCollection property="multipleLabels" destination="w6G-cO-Ne4" collectionClass="NSMutableArray" id="g3t-VM-PzS"/>
-                        <outletCollection property="multipleLabels" destination="WGw-sR-Z2x" collectionClass="NSMutableArray" id="mSK-hn-7HO"/>
                         <outletCollection property="rangedLabels" destination="Jye-Ri-t94" collectionClass="NSMutableArray" id="5nY-1t-lw5"/>
                         <outletCollection property="rangedLabels" destination="5E6-0M-LAo" collectionClass="NSMutableArray" id="PQI-UB-msZ"/>
+                        <outletCollection property="multipleLabels" destination="fc1-XG-4Oz" collectionClass="NSMutableArray" id="4kn-BW-Fl1"/>
+                        <outletCollection property="multipleLabels" destination="4fE-aK-Pu2" collectionClass="NSMutableArray" id="Ceh-fA-aGN"/>
+                        <outletCollection property="multipleLabels" destination="w6G-cO-Ne4" collectionClass="NSMutableArray" id="pEt-gW-LNi"/>
+                        <outletCollection property="multipleLabels" destination="WGw-sR-Z2x" collectionClass="NSMutableArray" id="5UI-I6-3ES"/>
                         <segue destination="UQK-uq-OdP" kind="show" identifier="showResult" id="QsI-77-kVb"/>
                     </connections>
                 </viewController>
@@ -362,9 +357,6 @@
             <point key="canvasLocation" x="728" y="88"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="QsI-77-kVb"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
