@@ -17,8 +17,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getResult()
-        
-        
+        navigationItem.hidesBackButton = true
     }
 
 }
@@ -26,32 +25,24 @@ class ResultsViewController: UIViewController {
 extension ResultsViewController{
     private func getResult(){
         
-        var res = answerChoosen.sorted(by: {(first: Answer, second: Answer ) -> Bool in
-            first.type == second.type})
+        var animalsAndAnswer: [AnimalType: Int] = [:]
+        let animalsType = answerChoosen.map({$0.type})
         
-        let a = "\(res.last?.type.rawValue)"
-        
-        labelResultAnimal.text = "\(res.last!.type.rawValue)"
-       
-        
-        var cat = 0
-        var dog = 0
-        var rabbite = 0
-        var tyrtle = 0
-        
-        for type in answerChoosen {
-        switch type.type {
-            case .dog: dog += 1
-            case .cat: cat += 1
-            case .rabbite: rabbite += 1
-            case .turtle: tyrtle += 1
+        for animal in animalsType {
+            if let counAnimal = animalsAndAnswer[animal] {
+                animalsAndAnswer.updateValue(counAnimal + 1, forKey: animal)
+            } else {
+               animalsAndAnswer[animal] = 1
             }
-        }
-        print(dog, cat, rabbite, tyrtle)
-        }
-        }
-            
-            
         
-    
+        
+            let sortedAnswerAndAnimal = animalsAndAnswer.sorted(by: {$0.value > $1.value})
+            guard let resultAnswer = sortedAnswerAndAnimal.first?.key else {return}
+        
+            labelResultAnimal.text = " Вы - \(resultAnswer.rawValue)"
+            labelDescriptionResult.text = resultAnswer.definition
+        }
+    }
+            
+}
 
